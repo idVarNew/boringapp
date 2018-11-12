@@ -32,7 +32,7 @@ This boring app allows you to do the following things:
 LIVE VERSION: http://frontendowiec.com/gf/index.html
 
 
-![myimage-alt-tag](http://frontendowiec.com/gf/googlefonts.jpg)
+![myimage-alt-tag](https://github.com/idVarNew/boringapp/blob/master/src/assets/boringapp.jpg?raw=true)
 
 
 ## TECHNOLOGIES
