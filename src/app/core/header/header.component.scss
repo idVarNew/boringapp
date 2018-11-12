@@ -1,0 +1,31 @@
+.main-header {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-title {
+  font-size: 2rem;
+}
+.menu {
+  &-active {
+    border-bottom: 1px solid #ddd;
+  }
+  &-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-item {
+    padding-left: 10px;
+  }
+  &-link {
+    color: #ffffff;
+    cursor: pointer;
+    &:hover{
+      color: #000000;
+    }
+    &-active {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "../task.component.scss";
+
+.comments{
+    &-item{
+      margin: 8px 0 ;
+      border: 1px dashed #3c4039;
+      padding: 10px;
+      position: relative;
+    }
+  }

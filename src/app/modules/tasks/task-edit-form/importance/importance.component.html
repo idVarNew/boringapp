@@ -1,0 +1,20 @@
+<div class="part part-3 form-group"  [formGroup]="editTaskForm">
+  <label for="task-importance"  class="group-title">Importance </label>
+
+  <ng-container *ngIf="formTaskImportance; else formTaskImportanceEdit">
+    {{task.importance === true ? 'This task is very important' : 'This task is not important'}}
+  </ng-container>
+
+  <ng-template #formTaskImportanceEdit>
+
+    <select class="custom-select" id="task-importance" formControlName="importance">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+
+  </ng-template>
+  <button type="button" class="btn btn-link btn-edit" (click)="formTaskImportance = !formTaskImportance">
+    {{formTaskImportance? 'Edit': 'Cancal'}}
+  </button>
+</div>
+

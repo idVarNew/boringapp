@@ -1,0 +1,32 @@
+<nav class="main-nav">
+  <a class="btn btn-primary btn-lg" routerLink="/new"> New Task </a>
+  <button
+    [disabled]="taskLength === 0"
+    type="button"
+    class="btn btn-link btn-menu-filters smf"
+    (click)="toggleFilters()"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"
+  >
+    <span>
+      Filters <i *ngIf="!isOpen" class="fas fa-angle-down"></i> <i *ngIf="isOpen" class="fas fa-angle-up"></i>
+    </span>
+  </button>
+</nav>
+
+<div id="collapseExample" [@openClose]="isOpen ? 'open' : 'closed'" >
+  <div class="filters">
+    <app-current-filters [allFilters]="allFilters"></app-current-filters>
+
+    <app-search [allFilters]="allFilters" (searchTaskEE)="searchTask($event)"></app-search>
+    <app-sorting [allFilters]="allFilters" (sortByDueDateEE)="sortByDueDate($event)"></app-sorting>
+
+    <app-filtering
+      [allFilters]="allFilters"
+      [labels]="labels"
+      (filterByLabelEE)="filterByLabel($event)"
+    ></app-filtering>
+
+    <button class="btn btn-secondary btn-sm" (click)="resetFilters()">Reset filters</button>
+  </div>
+</div>

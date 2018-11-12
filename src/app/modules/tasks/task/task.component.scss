@@ -1,0 +1,96 @@
+@import '~bootstrap/scss/bootstrap-grid.scss';
+
+.panel {
+  &-body {
+    background-color: #272a2594;
+    margin: 0px 25px 0px;
+    padding: 25px;
+    border-radius: 0.25rem;
+  }
+  &-heading {
+    padding: 15px 10px;
+    margin-top: 8px;
+    border-width: 0px;
+    border-left-width: 25px;
+    border-style: solid;
+    background-color: #272a25;
+  }
+  &-description {
+    line-height: 1.7;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-short-info {
+    font-size: 0.7rem;
+    width: 40%;
+    margin-left: 50px;
+    text-align: right;
+   >  * {
+    padding: 0 8px;
+    }
+    button {
+      padding: 0;
+      padding-right: 5px;
+      font-size: 0.7rem;
+    }
+  }
+}
+.labels {
+  margin-bottom: 10px;
+  &-item {
+    padding: 3px 5px;
+    margin-right: 3px;
+    font-size: 0.7rem;
+    background-color: #fff;
+  }
+}
+
+.far,
+.fas {
+  font-size: 1rem;
+  &:hover {
+    color: #ffffff;
+  }
+}
+.fa-star {
+  color: #e74c3c;
+}
+
+.btn {
+  &-close {
+    float: right;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    width: 72px;
+    align-items: end;
+  }
+  &-modal {
+    padding: 0;
+    font-size: 10px;
+    color: #000;
+  }
+  &-label {
+    font-size: 0.7rem;
+    padding: 3px 7px;
+    margin-right: 3px;
+  }
+  &-add-label {
+    font-size: 0.8rem;
+  }
+  &-edit {
+    font-size: 0.7rem;
+    font-style: italic;
+    position: absolute;
+    top: 15px;
+    right: 1px;
+  }
+  &-times-circle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 5px;
+  }
+}

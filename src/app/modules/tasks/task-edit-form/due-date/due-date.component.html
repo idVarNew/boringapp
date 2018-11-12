@@ -1,0 +1,32 @@
+<div class="part part-2 form-group" [formGroup]="editTaskForm">
+  <label for="form-date" class="group-title">Due date</label>
+  <div class="input-group-append">
+    <div class="d-inline-flex">
+      <ng-container *ngIf="formTaskDate; else: formTaskDateEdit">
+        {{ task.dueDate.year }}-{{ task.dueDate.month }}-{{ task.dueDate.day }}
+      </ng-container>
+
+      <ng-template #formTaskDateEdit>
+        <input
+          id="form-task"
+          class="form-control"
+          placeholder="yyyy-mm-dd"
+          name="dp"
+          [autoClose]="true"
+          ngbDatepicker
+          #d="ngbDatepicker"
+          formControlName="dueDate"
+        />
+        <button class="btn" (click)="d.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+      </ng-template>
+    </div>
+
+    <button type="button" class="btn btn-link btn-edit" (click)="formTaskDate = !formTaskDate">
+      {{ formTaskDate ? 'Edit' : 'Cancal' }}
+    </button>
+  </div>
+
+  <div *ngIf="dueDate.invalid && (dueDate.dirty || dueDate.touched)">
+    <div *ngIf="dueDate.errors.required" class="alert alert-danger">Due date is required.</div>
+  </div>
+</div>

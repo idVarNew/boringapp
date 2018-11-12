@@ -1,0 +1,17 @@
+<div class="part part-1 form-group" [formGroup]="editTaskForm">
+  <label for="task-description" class="group-title">Description</label>
+  <ng-container *ngIf="formTask; else: formTaskEdit"> {{ task.description }} </ng-container>
+
+  <ng-template #formTaskEdit>
+    <textarea class="w-100 form-control" formControlName="description" id="task-description"></textarea>
+    <div *ngIf="desc.invalid && (desc.dirty || desc.touched)" class="alert alert-danger">
+        <div *ngIf="desc.errors.required">Dscription is required.</div>
+        <div *ngIf="desc.errors.maxlength">Description must be max 300 characters long.</div>
+      </div>
+ 
+  </ng-template>
+
+  <button type="button" class="btn btn-link btn-edit" (click)="formTask = !formTask">
+    {{ formTask ? 'Edit' : 'Cancal' }}
+  </button>
+</div>

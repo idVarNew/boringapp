@@ -1,0 +1,85 @@
+<div class="panele">
+  <div class="panel-heading rounded position-relative " [style.border-color]="task.color">
+    <div class="labels">
+      <ng-container *ngIf="task.labels">
+        <app-label-tags [labels]="task.labels" (emitLabelEE)="filterByLabel($event)"></app-label-tags>
+      </ng-container>
+    </div>
+
+    <div class="panel-info">
+      <p class="panel-description smf">{{ task.description }}</p>
+      <div class="panel-short-info d-inline float-right">
+        <i *ngIf="task.status === 'done'" class="far fa-laugh" placement="left" ngbTooltip="Done"></i>
+        <i *ngIf="task.status === 'todo'" class="far fa-meh" placement="left" ngbTooltip="To do"></i>
+        <span *ngIf="outdatedTask && task.status === 'todo'" placement="left" ngbTooltip="Undone"
+          ><i class="far fa-frown"></i
+        ></span>
+
+        <span placement="left" ngbTooltip="Due date: {{task.dueDate.year}}-{{task.dueDate.month}}-{{task.dueDate.day}}">
+          <i class="far fa-clock"></i> {{ dateFromNow }}
+        </span>
+        <span *ngIf="task.importance"> <i class="fas fa-star"></i> </span>
+        <button (click)="openComments()" class="btn btn-link" placement="left" ngbTooltip="Comments">
+          {{ task.comments ? task.comments.length : 0 }} <i class="far fa-comment"></i>
+        </button>
+        <button class="btn btn-link btn-modal" (click)="open(content1)" placement="left" ngbTooltip="Delete this task">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <button class="btn btn-link btn-modal" (click)="open(content)" placement="left" ngbTooltip="Delete this task">
+          <i class="fas fa-pen"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body" *ngIf="task.opened">
+    <app-task-comments
+      (closeCommentsEE)="closeComments()"
+      (addCommentEE)="addComment($event)"
+      (removeCommentEE)="removeComment($event)"
+      [editTaskForm]="editTaskForm"
+      [task]="task"
+    ></app-task-comments>
+  </div>
+
+  <div>
+    <ng-template #content1 let-modal>
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <p class="modal-body modal-question">Are you sure you want to delete it?</p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="deleteTask(task.id)" (click)="close()">
+          Yes
+        </button>
+        <button type="button" class="btn btn-outline-success" (click)="close()">Cancal</button>
+      </div>
+    </ng-template>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-basic-title">Edit Task</h2>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-task-edit-form [allLabels]="allLabels" [task]="task" [editTaskForm]="editTaskForm"></app-task-edit-form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          [disabled]="editTaskForm.invalid"
+          (click)="saveChanges()"
+          (click)="close('Save click')"
+        >
+          Save Changes
+        </button>
+        <button type="button" class="btn btn-outline-success" (click)="close()">Cancal</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

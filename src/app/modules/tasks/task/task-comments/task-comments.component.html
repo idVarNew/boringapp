@@ -1,0 +1,30 @@
+<ul class="comments-list">
+  <li *ngFor="let comment of task.comments" class="comments-item">
+    <ng-container *ngIf="task.comments">
+      <time [attr.datetime]="comment.publishDate | date" class="comment-date"> {{ comment.publishDate | date }} </time>
+      <p class="comment-text">{{ comment.comment }}</p>
+    </ng-container>
+
+    <button (click)="removeComment(comment)" class="btn btn-link btn-times-circle">
+      <i class="fas fa-times-circle"></i>
+    </button>
+  </li>
+</ul>
+
+<form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
+  <label for="task-form-comments" class="task-form-comments">Add comment</label>
+
+  <textarea class="form-control comments" formControlName="comments" aria-label="Add comment" #comment></textarea>
+
+  <button
+    type="button"
+    class="btn btn-secondary btn-sm"
+    (click)="addComment(comment)"
+    [disabled]="comment.value === ''"
+  >
+    Add comment
+  </button>
+  <button type="button" class="btn btn-link btn-close" (click)="closeComments()">
+    <i class="fas fa-angle-up"></i> Close
+  </button>
+</form>

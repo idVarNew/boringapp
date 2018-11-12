@@ -1,0 +1,21 @@
+<div class="filtering">
+  <div class="filtering-labels">
+    <span>By label :</span>
+    <button
+      class="btn btn-link btn-filter"
+      (click)="filterByLabel('all')"
+      [class.btn-active]="allFilters.byLabel === 'all'"
+    >
+      All
+    </button>
+
+    <button
+      class="btn btn-link btn-filter"
+      *ngFor="let label of labels"
+      (click)="filterByLabel(label)"
+      [class.btn-active]="allFilters.byLabel === label"
+    >
+      {{ label }}
+    </button>
+   </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="part part-3 form-group" [formGroup]="editTaskForm">
+  <label for="task-importance" class="group-title">Status</label>
+
+  <ng-container *ngIf="formTaskStatus; else: formTaskStatusEdit">
+    {{ task.status === 'todo' ? "It's no done yet ..." : "It's done!" }}
+  </ng-container>
+
+  <ng-template #formTaskStatusEdit>
+    <select class="custom-select" id="task-importance" formControlName="status">
+      <option value="done">It's done!</option>
+      <option value="todo">It's no done yet ...</option>
+    </select>
+  </ng-template>
+  <button type="button" class="btn btn-link btn-edit" (click)="formTaskStatus = !formTaskStatus">
+    {{ formTaskStatus ? 'Edit' : 'Cancal' }}
+  </button>
+</div>

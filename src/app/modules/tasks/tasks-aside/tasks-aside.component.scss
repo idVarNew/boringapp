@@ -1,0 +1,26 @@
+@import '~bootstrap/scss/bootstrap-grid.scss';
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.filters {
+  border: 1px dashed #444642;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.btn {
+  &-active {
+    background-color: #e74c3c;
+    color: #ffffff;
+  }
+  &-menu-filters {
+    padding: 0;
+  }
+  &-filter {
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    margin: 10px 5px;
+    border: 1px solid #444742;
+  }
+}

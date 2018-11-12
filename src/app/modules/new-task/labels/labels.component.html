@@ -1,0 +1,49 @@
+
+<div class="part part-4 form-group">
+  <label for="task-labels" class="group-title">Labels</label>
+  <ng-container *ngIf="formTaskLabels; else: formTaskLabelsEdit">
+    <button type="button" *ngFor="let label of task.labels" class="btn btn-link btn-outline-secondary btn-label">
+      {{ label }}
+    </button>
+  </ng-container>
+  <ng-template #formTaskLabelsEdit>
+    <div class="group-labels">
+      <span class="group-labels-item" *ngFor="let label of labels">
+        {{ label }}
+        <button type="button" class="btn btn-link btn-times-circle" (click)="removeLabel(label)">
+          <i class="fas fa-times-circle"></i>
+        </button>
+      </span>
+    </div>
+    
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="label"
+        (input)="enable(labelValue)"
+        aria-label="label"
+        aria-describedby="button-add-label"
+        #labelValue
+      />
+
+      <div class="input-group-append">
+        <button
+          class="btn btn-secondary btn-add-label"
+          [disabled]="noLabels"
+          (click)="addNewLabel(labelValue)"
+          type="button"
+          id="button-add-label"
+        >
+          Add Label
+        </button>
+      </div>
+    </div>
+
+    <div  *ngIf="allLabels.length">
+      Currently active labels:
+      <app-label-tags [labels]="allLabels" (emitLabelEE)="addPrevLabel($event)"></app-label-tags>
+    </div>
+
+  </ng-template>
+</div>

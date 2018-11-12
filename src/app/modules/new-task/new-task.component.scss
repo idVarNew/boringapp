@@ -1,0 +1,51 @@
+@import '~bootstrap/scss/bootstrap-grid.scss';
+
+.group {
+  &-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: block;
+    color: #cecece;
+  }
+  &-labels {
+    margin: 15px 0;
+    &-item {
+      margin-right: 8px;
+    }
+  }
+}
+.btn {
+  &-label {
+    font-size: 0.7rem;
+    padding: 3px 7px;
+    margin-right: 3px;
+  }
+  &-add-label {
+    font-size: 0.8rem;
+  }
+  &-edit {
+    font-size: 0.7rem;
+    font-style: italic;
+    position: absolute;
+    top: 15px;
+    right: 1px;
+  }
+  &-times-circle {
+    padding: 0;
+    margin-top: -10px;
+  }
+}
+
+.part {
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #272a25;
+  position: relative;
+}
+
+.fa-palette {
+  font-size: 1.3rem;
+}
+.new-task-form{
+  margin-top: 25px;
+}

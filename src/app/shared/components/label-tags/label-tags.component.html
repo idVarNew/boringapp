@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="btn btn-link btn-outline-secondary btn-label"
+  *ngFor="let label of labels"
+  (click)="emitLabel(label)"
+>
+  {{ label }}
+</button>
+

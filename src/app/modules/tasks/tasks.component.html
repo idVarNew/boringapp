@@ -1,0 +1,53 @@
+<app-tasks-aside></app-tasks-aside>
+
+<ngb-tabset *ngIf="tasks.length">
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">All ({{ tasks.length }})</button>
+    </ng-template>
+    <ng-template ngbTabContent>
+      <ng-container *ngFor="let task of tasks">
+        <app-task (closeEE)="close($event)" (openEE)="open($event)" [allLabels]="allLabels" [task]="task"></app-task>
+      </ng-container>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">
+        To do ({{ todoTasks.length }})<i class="far fa-meh"></i>
+      </button>
+    </ng-template>
+    <ng-template ngbTabContent>
+      <ng-container *ngFor="let task of todoTasks">
+        <app-task (closeEE)="close($close)" (openEE)="open($event)" [task]="task"></app-task>
+      </ng-container>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">
+        Done ({{ doneTask.length }}) <i class="far fa-laugh"></i>
+      </button>
+    </ng-template>
+    <ng-template ngbTabContent>
+      <ng-container *ngFor="let task of doneTask; ">
+        <app-task (closeEE)="close($close)" (openEE)="open($event)" [task]="task"></app-task>
+      </ng-container>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">
+        Outdated({{ outdatedTasks.length }}) <i class="far fa-frown"></i>
+      </button>
+    </ng-template>
+    <ng-template ngbTabContent>
+      <ng-container *ngFor="let task of outdatedTasks;">
+        <app-task (closeEE)="close($close)" (openEE)="open($event)" [task]="task"></app-task>
+      </ng-container>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

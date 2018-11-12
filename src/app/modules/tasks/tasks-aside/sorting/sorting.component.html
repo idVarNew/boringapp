@@ -1,0 +1,5 @@
+<div class="sorting">
+    Due Date:
+    <button class="btn btn-link btn-filter" (click)="sortByDueDate('newest')" [class.btn-active]="allFilters.byDueDate=== 'newest'">Newest First</button>
+    <button class="btn btn-link btn-filter" (click)="sortByDueDate('oldest')" [class.btn-active]="allFilters.byDueDate=== 'oldest'">Oldest First</button>
+</div>

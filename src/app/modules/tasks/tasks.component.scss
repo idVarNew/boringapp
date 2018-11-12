@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/bootstrap-grid.scss';
+
+.panel {
+  padding: 10px;
+}
+.nav-tabs {
+  border-bottom: none;
+}
+
+::ng-deep {
+  .nav-link.active {
+    .btn-heading {
+      color: #ffffff;
+      background-color: #080808;
+      border: 1px solid #000;
+    }
+  }
+  
+}
+.btn-heading {
+  .far {
+    padding-left: 5px;
+  }
+}

@@ -1,0 +1,37 @@
+<div class="part part-4 form-group">
+  <label for="task-labels"  class="group-title">Labels</label>
+  <ng-container *ngIf="formTaskLabels; else formTaskLabelsEdit">
+    <button type="button" *ngFor="let label of task.labels" class="btn btn-link btn-outline-secondary btn-label smf">
+      {{label}}
+    </button>
+    {{task.labels.length ===0 ? 'no labels' : ''}}
+  </ng-container>
+
+  <ng-template #formTaskLabelsEdit>
+    <div class="group-labels">
+      <span class="group-labels-item" *ngFor="let label of labels">
+        {{label}}
+        <button type="button" class="btn btn-link btn-times-circle" (click)="removeLabel(label)">
+          <i class="fas fa-times-circle"></i>
+        </button>
+      </span>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" (input)="enable()" placeholder="label" aria-label="label" aria-describedby="button-add-label" #labelInput>
+      <div class="input-group-append">
+        <button class="btn btn-secondary btn-add-label" type="button" id="button-add-label" (click)="addNewLabel(labelInput)"
+          [disabled]="labelInput.value.length ===0">
+          Add Label
+        </button>
+      </div>
+    </div>
+
+    <app-label-tags [labels]="allLabels" (emitLabelEE)="addPrevLabel($event)"></app-label-tags>
+
+  </ng-template>
+
+  <button type="button" class="btn btn-link btn-edit" (click)="formTaskLabels = !formTaskLabels">
+    {{formTaskLabels ? 'Edit' : 'Cancal'}}
+  </button>
+</div>

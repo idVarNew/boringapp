@@ -1,0 +1,19 @@
+<form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
+  <app-status [editTaskForm]="editTaskForm" [task]="task"></app-status>
+  <app-description [editTaskForm]="editTaskForm" [task]="task"></app-description>
+  <app-due-date [editTaskForm]="editTaskForm" [task]="task"></app-due-date>
+
+  <app-importance [editTaskForm]="editTaskForm" [task]="task"></app-importance>
+
+  <app-labels
+    (removeLabelEE)="removeLabel($event)"
+    (addPrevLabelEE)="addPrevLabel($event)"
+    (addNewLabelEE)="addNewLabel($event)"
+    [allLabels]="allLabels"
+    [labels]="labels"
+    [task]="task"
+  ></app-labels>
+
+
+  <app-color [taskColors]="taskColors" [editTaskForm]="editTaskForm" [task]="task"></app-color>
+</form>
