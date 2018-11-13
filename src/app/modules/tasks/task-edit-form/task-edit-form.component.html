@@ -1,4 +1,4 @@
-<form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="editTaskForm">
   <app-status [editTaskForm]="editTaskForm" [task]="task"></app-status>
   <app-description [editTaskForm]="editTaskForm" [task]="task"></app-description>
   <app-due-date [editTaskForm]="editTaskForm" [task]="task"></app-due-date>

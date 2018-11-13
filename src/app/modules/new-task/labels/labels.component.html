@@ -1,12 +1,8 @@
 
 <div class="part part-4 form-group">
   <label for="task-labels" class="group-title">Labels</label>
-  <ng-container *ngIf="formTaskLabels; else: formTaskLabelsEdit">
-    <button type="button" *ngFor="let label of task.labels" class="btn btn-link btn-outline-secondary btn-label">
-      {{ label }}
-    </button>
-  </ng-container>
-  <ng-template #formTaskLabelsEdit>
+ 
+
     <div class="group-labels">
       <span class="group-labels-item" *ngFor="let label of labels">
         {{ label }}
@@ -21,7 +17,7 @@
         type="text"
         class="form-control"
         placeholder="label"
-        (input)="enable(labelValue)"
+        (input)="enable()"
         aria-label="label"
         aria-describedby="button-add-label"
         #labelValue
@@ -45,5 +41,4 @@
       <app-label-tags [labels]="allLabels" (emitLabelEE)="addPrevLabel($event)"></app-label-tags>
     </div>
 
-  </ng-template>
 </div>

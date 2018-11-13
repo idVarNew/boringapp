@@ -11,7 +11,7 @@
   </li>
 </ul>
 
-<form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
+<div [formGroup]="editTaskForm">
   <label for="task-form-comments" class="task-form-comments">Add comment</label>
 
   <textarea class="form-control comments" formControlName="comments" aria-label="Add comment" #comment></textarea>
@@ -27,4 +27,4 @@
   <button type="button" class="btn btn-link btn-close" (click)="closeComments()">
     <i class="fas fa-angle-up"></i> Close
   </button>
-</form>
+</div>

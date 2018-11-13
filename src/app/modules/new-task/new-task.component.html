@@ -3,19 +3,18 @@
 
 <form class="new-task-form" [formGroup]="newTaskForm" (ngSubmit)="onSubmit()">
   
-  <app-description  [newTaskForm]="newTaskForm" [task]="task"></app-description>
+  <app-description  [newTaskForm]="newTaskForm" ></app-description>
   
-  <app-due-date  [newTaskForm]="newTaskForm" [task]="task"></app-due-date>
-  <app-importance [newTaskForm]="newTaskForm" [task]="task"></app-importance>
+  <app-due-date  [newTaskForm]="newTaskForm" ></app-due-date>
+  <app-importance [newTaskForm]="newTaskForm" ></app-importance>
   <app-labels
     [labels]="labels"
     [allLabels]="allLabels"
     (removeLabelEE)="removeLabel($event)"
     (addNewLabelEE)="addNewLabel($event)"
     (addPrevLabelEE)="addPrevLabel($event)"
-    [task]="task"
   ></app-labels>
-  <app-color [newTaskForm]="newTaskForm" [taskColors]="taskColors" [task]="task"></app-color>
+  <app-color [newTaskForm]="newTaskForm" [taskColors]="taskColors"></app-color>
 
   <button type="submit" [disabled]="newTaskForm.invalid" class="btn btn-primary btn-lg">Submit</button>
 </form>
