@@ -29,7 +29,7 @@ This boring app allows you to do the following things:
  --- colors
 
 
-LIVE VERSION: http://frontendowiec.com/gf/index.html
+LIVE VERSION: http://frontendowiec.com/boringapp/
 
 
 ![myimage-alt-tag](https://github.com/idVarNew/boringapp/blob/master/src/assets/boringapp.jpg?raw=true)
