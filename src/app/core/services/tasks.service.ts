@@ -96,7 +96,6 @@ export class TasksService {
 
   getUpdate(tasks: Array<TaskModel>) {
     const JSONTasks: string | number = JSON.stringify(tasks);
-console.log(tasks)
     if (this.key === undefined) {
       this.itemsRef$.push({ tasks: JSONTasks });
     } else {

@@ -7,7 +7,9 @@ import { Store, Action } from '@ngrx/store';
 import { StoreModel, TaskModel } from '../shared/models/task.model';
 import { initialFilters } from './app.state';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class Effects {
   constructor(
     private actions$: Actions,
@@ -21,7 +23,6 @@ export class Effects {
     switchMap(() => {
       return this.tasksService.getAllTasks(initialFilters).pipe(
         map((tasks: Array<TaskModel>) => {
-          console.log(1111)
           return new AppActions.loadInitialTasks(tasks);
         }),
         catchError(error => error)
@@ -77,7 +78,6 @@ export class Effects {
     ),
     withLatestFrom(this.store, (action: Action, store: StoreModel) => store),
     map((store: StoreModel) => {
-      console.log(store)
       this.tasksService.getUpdate(store['tasks']);
     })
   );

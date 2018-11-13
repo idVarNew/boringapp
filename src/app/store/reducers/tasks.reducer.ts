@@ -103,7 +103,6 @@ export function Tasks(state = Store.tasks, action: AppActions.TasksActions) {
     case AppActions.OPENED:
       return state.map((task: TaskModel) => {
         if (task.id === action.payload.id) {
-          console.log(action.payload.id);
           return {
             ...task,
             opened: action.payload.opened
