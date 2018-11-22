@@ -1,31 +1,75 @@
-.main-header {
-  padding: 25px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@import '~bootstrap/scss/bootstrap-grid.scss';
 .page-title {
-  font-size: 2rem;
+  color: #ffffff;
 }
 .menu {
   &-active {
     border-bottom: 1px solid #ddd;
   }
-  &-list {
-    display: flex;
-    justify-content: space-between;
-  }
-  &-item {
-    padding-left: 10px;
-  }
   &-link {
     color: #ffffff;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: #000000;
     }
     &-active {
       border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+.main-header {
+  position: relative;
+}
+
+@include media-breakpoint-down(md) {
+  .main-header {
+    padding-bottom: 25px;
+  }
+  .main-nav {
+    position: static;
+  }
+
+  .toggleButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 5px;
+    font-size: 1.2rem;
+  }
+
+  .menu {
+    &-list {
+      font-size: 0.8rem;
+      line-height: 2.4;
+      padding-left: 0;
+      border: 1px dashed #444642;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .page-title {
+    font-size: 2rem;
+  }
+  .main-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggleButton {
+    display: none;
+  }
+  .menu {
+    &-list {
+      display: flex;
+      justify-content: flex-end;
+    }
+    &-item {
+      padding-left: 10px;
     }
   }
 }

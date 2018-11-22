@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
-import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as AppActions from '../../store/actions';
 import { StoreModel } from '../../shared/models/task.model';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-my-account',

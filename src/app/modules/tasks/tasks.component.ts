@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../core/services/tasks.service';
 import { Store } from '@ngrx/store';
-import * as AppActions from '../../store/actions';
 import { StoreModel } from '../../shared/models/task.model';
-import { TaskModel, CommentModel, NewTask } from '../../shared/models/task.model';
+import { TaskModel } from '../../shared/models/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -17,8 +16,8 @@ export class TasksComponent implements OnInit {
   doneTask: Array<TaskModel>;
   todoTasks: Array<TaskModel>;
   allLabels: Array<string> = [];
-currentPanel = true
-  constructor(private store: Store<StoreModel>, private tasksService: TasksService) {}
+  currentPanel = true
+  constructor(private store: Store<StoreModel>, private tasksService: TasksService) { }
 
   ngOnInit() {
     this.store.select('tasks').subscribe((tasks: Array<TaskModel>) => {
@@ -37,5 +36,5 @@ currentPanel = true
     this.tasks.forEach(task => {
       task.opened = false;
     });
-  }  
+  }
 }

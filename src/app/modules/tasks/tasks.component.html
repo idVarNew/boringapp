@@ -15,7 +15,7 @@
   <ngb-tab>
     <ng-template ngbTabTitle>
       <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">
-        To do ({{ todoTasks.length }})<i class="far fa-meh"></i>
+       <span class="isMobile"> To do </span>({{ todoTasks.length }})<i class="far fa-meh"></i>
       </button>
     </ng-template>
     <ng-template ngbTabContent>
@@ -28,7 +28,7 @@
   <ngb-tab>
     <ng-template ngbTabTitle>
       <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">
-        Done ({{ doneTask.length }}) <i class="far fa-laugh"></i>
+     <span class="isMobile">Done </span>   ({{ doneTask.length }}) <i class="far fa-laugh"></i>
       </button>
     </ng-template>
     <ng-template ngbTabContent>
@@ -41,7 +41,7 @@
   <ngb-tab>
     <ng-template ngbTabTitle>
       <button type="button" class="btn btn-secondary btn-heading" (click)="closeComments()">
-        Outdated({{ outdatedTasks.length }}) <i class="far fa-frown"></i>
+     <span class="isMobile"> Outdated </span>  ({{ outdatedTasks.length }}) <i class="far fa-frown"></i>
       </button>
     </ng-template>
     <ng-template ngbTabContent>

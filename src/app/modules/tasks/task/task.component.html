@@ -6,9 +6,9 @@
       </ng-container>
     </div>
 
-    <div class="panel-info">
-      <p class="panel-description smf">{{ task.description }}</p>
-      <div class="panel-short-info d-inline float-right">
+    <div class="panel-info row">
+      <p class="panel-description smf   col-12 col-md-6 col-lg-8">{{ task.description }}</p>
+      <div class="panel-short-info d-inline float-right col-12 col-md-6 col-lg-4">
         <i *ngIf="task.status === 'done'" class="far fa-laugh" placement="left" ngbTooltip="Done"></i>
         <i *ngIf="task.status === 'todo'" class="far fa-meh" placement="left" ngbTooltip="To do"></i>
         <span *ngIf="outdatedTask && task.status === 'todo'" placement="left" ngbTooltip="Undone"

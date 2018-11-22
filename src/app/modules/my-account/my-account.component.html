@@ -3,7 +3,7 @@
 <div *ngIf="alertSuccess" class="alert alert-success" role="alert">{{ alertSuccess }}</div>
 <div *ngIf="alertError" class="alert alert-danger" role="alert">{{ alertError }}</div>
 
-<button *ngIf="!isDeleted" class="btn  btn-modal mt-4" (click)="openModal(content)">
+<button *ngIf="!isDeleted" class="btn d-block btn-modal mt-4" (click)="openModal(content)">
   <i class="fas fa-trash-alt"></i> Delete your account
 </button>
 

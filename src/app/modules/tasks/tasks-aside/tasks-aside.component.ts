@@ -11,7 +11,6 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./tasks-aside.component.scss'],
   animations: [
     trigger('openClose', [
-      // ...
       state(
         'open',
         style({

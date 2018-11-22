@@ -1,18 +1,40 @@
-import { Component, OnInit, Renderer2, AfterViewChecked, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ChangeDetectorRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { Store } from '@ngrx/store';
 import * as AppActions from '../../store/actions';
 import { StoreModel } from '../../shared/models/task.model';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state(
+        'open',
+        style({
+          height: '*',
+          display: 'block'
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          display: 'none'
+        })
+      ),
+      transition('open => closed', [animate('0.2s')]),
+      transition('closed => open', [animate('0.2s')])
+    ])
+  ]
 })
 export class HeaderComponent implements OnInit, AfterViewChecked {
   isLogIn: boolean;
-  userEmail = "";
+  userEmail = '';
+  isMobileMenu = false;
 
   constructor(
     private serviceAuth: AuthenticationService,
@@ -23,9 +45,9 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.serviceAuth.user.subscribe(user => {
-      if(user){
+      if (user) {
         this.userEmail = user.email;
-      }    
+      }
     });
   }
 
@@ -37,10 +59,15 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
     }
     this.cdr.detectChanges();
   }
+
   logout(): void {
     localStorage.removeItem('userEmailBoringApp');
     this.store.dispatch(new AppActions.resetStore());
     this.serviceAuth.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleMenu() {
+    this.isMobileMenu = !this.isMobileMenu;
   }
 }
