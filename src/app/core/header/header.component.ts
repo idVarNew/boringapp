@@ -34,7 +34,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class HeaderComponent implements OnInit, AfterViewChecked {
   isLogIn: boolean;
   userEmail = '';
-  isMobileMenu = false;
+  isMobile = false;
 
   constructor(
     private serviceAuth: AuthenticationService,
@@ -68,6 +68,6 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   }
 
   toggleMenu() {
-    this.isMobileMenu = !this.isMobileMenu;
+    this.isMobile = !this.isMobile;
   }
 }

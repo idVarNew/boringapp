@@ -22,7 +22,7 @@
   position: relative;
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(sm) {
   .main-header {
     padding-bottom: 25px;
   }
@@ -54,8 +54,10 @@
   .page-title {
     font-size: 2rem;
   }
+
   .main-header {
-    padding: 15px;
+
+    padding: 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,11 +67,14 @@
   }
   .menu {
     &-list {
-      display: flex;
+      display: flex!important;
       justify-content: flex-end;
     }
     &-item {
       padding-left: 10px;
     }
   }
+}
+@include media-breakpoint-down(sm) {
+
 }
