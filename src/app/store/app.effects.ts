@@ -1,7 +1,7 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { TasksService } from '../core/services/tasks.service';
-import { switchMap, map, catchError, withLatestFrom, tap, concatMap } from 'rxjs/operators';
+import { switchMap, map, catchError, withLatestFrom } from 'rxjs/operators';
 import * as AppActions from './actions/index';
 import { Store, Action } from '@ngrx/store';
 import { StoreModel, TaskModel } from '../shared/models/task.model';
